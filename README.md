@@ -1,4 +1,4 @@
-# Are you the one
+# Are you the one?
 This is a project for CSE 2050
 
 # Summary
