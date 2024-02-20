@@ -1,11 +1,11 @@
 # Are you the one
 This is a project for CSE 2050
 
-#Summary
+# Summary
 Insert sumary here
 
-#Features
+# Features
 This simulation has lots of cool features!
 
-#Instructions
+# Instructions
 Insert instructions here
