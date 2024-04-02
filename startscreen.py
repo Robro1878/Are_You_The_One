@@ -34,7 +34,7 @@ class StartScreen:
                     self.gameStateManager.setState('select_character')
 
         # Blit the background onto the screen
-        self.screen.blit(self.background, (0, 0))
+        self.screen.blit(self.background, (0,0))
 
         #Blit the start button onto the screen
         self.screen.blit(self.start_button_image, self.start_button_rect)
