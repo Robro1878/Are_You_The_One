@@ -1,5 +1,6 @@
 import images
 import pygame
+
 from constants import SelectCharacter as C
 
 class SelectCharacter:

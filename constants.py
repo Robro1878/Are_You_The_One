@@ -5,7 +5,22 @@ class game:
     screen_height = 512
     window_title = "Are you the one?"
     fps = 60
-    characters = {"Amy": None,"Ava": None,"Ben": None,"Emma": None,"Ethan": None, "Izzy": None, "James": None, "Liam": None, "Mason": None, "Mia": None, "Noah": None, "Oliver": None, "Olivia": None, "Sophia": None, "Will": None, "Zoe": None}
+    characters = {"Amy": {'Gender' : 'Female'},
+                  "Ava": {'Gender' : 'Female'},
+                  "Ben": {'Gender' : 'Male'},
+                  "Emma": {'Gender' : 'Female'},
+                  "Ethan": {'Gender' : 'Male'},
+                  "Izzy": {'Gender' : 'Female'},
+                  "James": {'Gender' : 'Male'},
+                  "Liam": {'Gender' : 'Male'},
+                  "Mason": {'Gender' : 'Male'},
+                  "Mia": {'Gender' : 'Female'},
+                  "Noah": {'Gender' : 'Male'},
+                  "Oliver": {'Gender' : 'Male'},
+                  "Olivia": {'Gender' : 'Female'},
+                  "Sophia": {'Gender' : 'Female'},
+                  "Will": {'Gender' : 'Male'},
+                  "Zoe": {'Gender' : 'Female'}}
 
 class StartScreen:
     start_button_pos = (685,383)
@@ -24,6 +39,8 @@ class SelectPreferences:
 
     male_symbol_pos = (250,225)
     female_symbol_pos = (100, 225)
+
+    next_button_pos = (game.screen_width//2, 450)
 
 class Colors:
     GREEN = (0, 255, 0)
