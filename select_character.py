@@ -3,10 +3,11 @@ import pygame
 from constants import SelectCharacter as C
 
 class SelectCharacter:
-    def __init__(self, screen, gameStateManager):
+    def __init__(self, screen, gameStateManager, characterManager):
         '''initialize select character screen'''
         self.screen = screen
-        self.gameStateManger = gameStateManager
+        self.gameStateManager = gameStateManager
+        self.characterManager = characterManager
 
         #background image
         self.background = images.SelectCharacter.background
@@ -80,7 +81,7 @@ class SelectCharacter:
                 if self.left_arrow_rect.collidepoint(event.pos):
                     self.current_character_idx = (self.current_character_idx - 1) % len(self.character_list)
                 if self.select_rect.collidepoint(event.pos):
-                    print(self.character_list[self.current_character_idx][0])
+                    self.characterManager.setMainCharacter(self.character_list[self.current_character_idx][0])
 
         self.screen.blit(self.background, (0, 0))
 

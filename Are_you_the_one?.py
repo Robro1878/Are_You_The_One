@@ -1,9 +1,9 @@
 import sys
 import pygame
 from constants import game as C
-import startscreen
-import select_character
-import CharacterManager
+from startscreen import StartScreen
+from select_character import SelectCharacter
+from CharacterManager import CharacterManager
 
 class Game:
     def __init__(self):
@@ -16,8 +16,8 @@ class Game:
 
         self.gameStateManager = GameStateManager('start')
         self.characterManager = CharacterManager(C.characters)
-        self.startscreen = startscreen.StartScreen(self.screen, self.gameStateManager)
-        self.select_character = select_character.SelectCharacter(self.screen, self.gameStateManager)
+        self.startscreen = StartScreen(self.screen, self.gameStateManager)
+        self.select_character = SelectCharacter(self.screen, self.gameStateManager, self.characterManager)
 
         self.states = {'start': self.startscreen, 'select_character': self.select_character}
 

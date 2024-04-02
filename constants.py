@@ -3,7 +3,7 @@ class game:
     screen_height = 512
     window_title = "Are you the one?"
     fps = 60
-    characters = {"Amy","Ava","Ben","Emma","Ethan", "Izzy", "James", "Liam", "Mason", "Mia", "Noah", "Oliver", "Olivia", "Sophia", "Will", "Zoe"}
+    characters = {"Amy": None,"Ava": None,"Ben": None,"Emma": None,"Ethan": None, "Izzy": None, "James": None, "Liam": None, "Mason": None, "Mia": None, "Noah": None, "Oliver": None, "Olivia": None, "Sophia": None, "Will": None, "Zoe": None}
 
 class StartScreen:
     start_button_pos = (685,383)
