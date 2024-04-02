@@ -1,5 +1,5 @@
 import pygame
-import sys
+from constants import Colors
 
 class Text_Input_Field:
     def __init__(self, screen, fontsize:int, rect:pygame.Rect):
@@ -7,10 +7,7 @@ class Text_Input_Field:
         self.rect = rect
         self.screen = screen
 
-        # Colors
-        self.WHITE = (255, 255, 255)
-        self.BLACK = (0, 0, 0)
-        self.GRAY = (200, 200, 200)
+
 
         # Text input field
         self.text = ""
@@ -33,10 +30,16 @@ class Text_Input_Field:
 
         # Fill the screen
         # Draw text input field
-        pygame.draw.rect(self.screen, self.GRAY, self.rect)
-        pygame.draw.rect(self.screen, self.BLACK, self.rect, 2)
-        input_text = self.font.render(self.text, True, self.BLACK)
+        pygame.draw.rect(self.screen, Colors.GRAY, self.rect)
+        if self.active:
+            pygame.draw.rect(self.screen, Colors.BLUE, self.rect, 4)
+        else: 
+            pygame.draw.rect(self.screen, Colors.BLACK, self.rect, 2)
+        
+        input_text = self.font.render(self.text, True, Colors.BLACK)
         self.screen.blit(input_text, self.rect.move(5, 5))
+
+
 
     def get_input(self):
         return self.text

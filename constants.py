@@ -26,4 +26,8 @@ class SelectPreferences:
     female_symbol_pos = (100, 225)
 
 class Colors:
-    green = (0, 255, 0)
+    GREEN = (0, 255, 0)
+    BLUE = (0,0,255)
+    WHITE = (255, 255, 255)
+    BLACK = (0, 0, 0)
+    GRAY = (200, 200, 200)

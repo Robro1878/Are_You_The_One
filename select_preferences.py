@@ -60,6 +60,6 @@ class SelectPreferences:
         self.screen.blit(self.male_symbol, self.male_symbol_rect)
 
         if self.selected_gender == 'Male':
-            pygame.draw.rect(self.screen, Colors.green, self.male_symbol_rect, 3, 3)
+            pygame.draw.rect(self.screen, Colors.GREEN, self.male_symbol_rect, 3, 3)
         elif self.selected_gender == 'Female':
-            pygame.draw.rect(self.screen, Colors.green, self.female_symbol_rect, 3, 3)
+            pygame.draw.rect(self.screen, Colors.GREEN, self.female_symbol_rect, 3, 3)
