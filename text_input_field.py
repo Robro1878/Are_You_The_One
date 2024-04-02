@@ -1,57 +1,42 @@
 import pygame
 import sys
 
-# Initialize Pygame
-pygame.init()
+class Text_Input_Field:
+    def __init__(self, screen, fontsize:int, rect:pygame.Rect):
+        self.font = pygame.font.SysFont(None, fontsize)
+        self.rect = rect
+        self.screen = screen
 
-# Set up display
-WIDTH, HEIGHT = 400, 300
-screen = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Text Input Field")
+        # Colors
+        self.WHITE = (255, 255, 255)
+        self.BLACK = (0, 0, 0)
+        self.GRAY = (200, 200, 200)
 
-# Colors
-WHITE = (255, 255, 255)
-BLACK = (0, 0, 0)
-GRAY = (200, 200, 200)
+        # Text input field
+        self.text = ""
+        self.active = False
+    
+    def run(self, events):
 
-# Fonts
-font = pygame.font.SysFont(None, 24)
-
-# Text input field
-text = ""
-input_rect = pygame.Rect(100, 100, 200, 30)
-active = False
-
-# Main loop
-running = True
-while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-        elif event.type == pygame.MOUSEBUTTONDOWN:
-            if input_rect.collidepoint(event.pos):
-                active = not active
-            else:
-                active = False
-        elif event.type == pygame.KEYDOWN:
-            if active:
-                if event.key == pygame.K_BACKSPACE:
-                    text = text[:-1]
+        for event in events:
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if self.rect.collidepoint(event.pos):
+                    self.active = not self.active
                 else:
-                    text += event.unicode
+                    self.active = False
+            elif event.type == pygame.KEYDOWN:
+                if self.active:
+                    if event.key == pygame.K_BACKSPACE:
+                        self.text = self.text[:-1]
+                    else:
+                        self.text += event.unicode
 
-    # Fill the screen
-    screen.fill(WHITE)
+        # Fill the screen
+        # Draw text input field
+        pygame.draw.rect(self.screen, self.GRAY, self.rect)
+        pygame.draw.rect(self.screen, self.BLACK, self.rect, 2)
+        input_text = self.font.render(self.text, True, self.BLACK)
+        self.screen.blit(input_text, self.rect.move(5, 5))
 
-    # Draw text input field
-    pygame.draw.rect(screen, GRAY, input_rect)
-    pygame.draw.rect(screen, BLACK, input_rect, 2)
-    input_text = font.render(text, True, BLACK)
-    screen.blit(input_text, input_rect.move(5, 5))
-
-    # Update the display
-    pygame.display.flip()
-
-# Quit Pygame
-pygame.quit()
-sys.exit()
+    def get_input(self):
+        return self.text

@@ -51,7 +51,6 @@ class SelectCharacter:
         
     def run(self, events):
         '''Run select character screen'''
-        # Blit the background onto the screen
         for event in events:
             if event.type == pygame.MOUSEMOTION:
                 #check if mouse is in button area
@@ -82,6 +81,7 @@ class SelectCharacter:
                     self.current_character_idx = (self.current_character_idx - 1) % len(self.character_list)
                 if self.select_rect.collidepoint(event.pos):
                     self.characterManager.setMainCharacter(self.character_list[self.current_character_idx][0])
+                    self.gameStateManager.setState('select_preferences')
 
         self.screen.blit(self.background, (0, 0))
 

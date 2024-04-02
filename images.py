@@ -17,6 +17,12 @@ class SelectCharacter:
     select = pygame.image.load("images/Select_button.png")
     select_scaled = pygame.image.load("images/Select_button_scaled.png")
 
+class SelectPreferences:
+    background = pygame.image.load("images/select_preferences.png")
+    male_symbol = pygame.image.load("images/male_symbol.png")
+    male_symbol_scaled = pygame.image.load("images/male_symbol_scaled.png")
+    female_symbol = pygame.image.load("images/female_symbol.png")
+    female_symbol_scaled = pygame.image.load("images/female_symbol_scaled.png")
 class Characters:
     Liam = pygame.image.load("images/characters/Liam.jpg")
     Ben = pygame.image.load("images/characters/Ben.jpg")

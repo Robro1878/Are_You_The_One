@@ -4,3 +4,6 @@ class CharacterManager:
     
     def setMainCharacter(self, character: str):
         self.MainCharacter = character
+
+    def getMainCharacter(self):
+        return self.MainCharacter
