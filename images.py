@@ -45,5 +45,8 @@ class Characters:
     Sophia = pygame.image.load("images/characters/Sophia.jpg")
     Zoe = pygame.image.load("images/characters/Zoe.jpg")
 
+class Messaging:
+    select_character = pygame.image.load("images/select_character_to_talk_to.png")
+    send_message = pygame.image.load("images/send_message.png")
 
     

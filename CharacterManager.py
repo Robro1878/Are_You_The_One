@@ -72,6 +72,9 @@ class CharacterManager:
                 traits['Values'] = [random.choice(CharacterTraits.values) for i in range(random.randint(1,3))]
 
         print(self.other_characters)
+    
+    def getOtherCharacters(self):
+        return self.other_characters
 
         
         

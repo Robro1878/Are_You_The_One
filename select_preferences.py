@@ -67,6 +67,7 @@ class SelectPreferences:
                     self.characterManager.setJob_Preference(self.job_input.get_input())
                     self.characterManager.setValues_Preference(self.values_input.get_input())
                     self.characterManager.randomizeOtherPlayerTraits()
+                    self.gameStateManager.setState('messenger')
 
 
         self.screen.blit(self.background, (0,0))

@@ -42,9 +42,14 @@ class SelectPreferences:
 
     next_button_pos = (game.screen_width//2, 450)
 
+class Messaging_Select:
+    width = 150
+    fontsize = 30
+
 class Colors:
     GREEN = (0, 255, 0)
     BLUE = (0,0,255)
     WHITE = (255, 255, 255)
     BLACK = (0, 0, 0)
     GRAY = (200, 200, 200)
+    LIGHT_GRAY = (219, 219, 219)
