@@ -48,5 +48,6 @@ class Characters:
 class Messaging:
     select_character = pygame.image.load("images/select_character_to_talk_to.png")
     send_message = pygame.image.load("images/send_message.png")
+    send_message_scaled = pygame.image.load("images/send_message_scaled.png")
 
     

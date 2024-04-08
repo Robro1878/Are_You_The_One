@@ -39,7 +39,8 @@ class Text_Input_Field:
         input_text = self.font.render(self.text, True, Colors.BLACK)
         self.screen.blit(input_text, self.rect.move(5, 5))
 
-
-
     def get_input(self):
         return self.text
+    
+    def reset(self):
+        self.text = ""

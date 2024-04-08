@@ -26,8 +26,6 @@ class Messenger:
 
         for select in self.messaging_selects:
             select.run()
-        
-        self.states[self.stateManager.getState()].run(events, 0)
 
         for event in events:
             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -40,6 +38,7 @@ class Messenger:
                             
                             self.stateManager.setState(select.getCharacter())
                             select.setActive(True)
+                            self.scroll_y = 0
                 
                 if event.button == pygame.BUTTON_WHEELDOWN:
                     self.scroll_y -= self.scroll_speed
@@ -47,7 +46,7 @@ class Messenger:
                 if event.button == pygame.BUTTON_WHEELUP:
                     self.scroll_y +=  self.scroll_speed
                     
-            
+        self.states[self.stateManager.getState()].run(events, self.scroll_y)            
 
 
 class StateManager:

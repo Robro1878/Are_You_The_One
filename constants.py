@@ -46,6 +46,12 @@ class Messaging_Select:
     width = 150
     fontsize = 30
 
+class Messaging:
+    send_button_pos = (737,475)
+    message_height = 30
+    message_initial_height = game.screen_height - 110
+    message_height_delta = message_height + 10
+
 class Colors:
     GREEN = (0, 255, 0)
     BLUE = (0,0,255)
