@@ -30,23 +30,7 @@ class SelectCharacter:
         self.characterrect = pygame.Rect(0,0,256,384)
         self.characterrect.center = C.character_pos
         
-        self.character_list = [
-            ['Liam',images.Characters.Liam],
-            ['Ben',images.Characters.Ben],
-            ['Ethan',images.Characters.Ethan],
-            ['James',images.Characters.James],
-            ['Mason',images.Characters.Mason],
-            ['Noah',images.Characters.Noah],
-            ['Oliver',images.Characters.Oliver],
-            ['Will',images.Characters.Will],
-            ['Amy', images.Characters.Amy],
-            ['Ava', images.Characters.Ava],
-            ['Emma', images.Characters.Emma],
-            ['Izzy', images.Characters.Izzy],
-            ['Mia', images.Characters.Mia],
-            ['Olivia', images.Characters.Olivia],
-            ['Sophia', images.Characters.Sophia],
-            ['Zoe', images.Characters.Zoe],]
+        self.character_list = images.Characters.character_list
         
         self.current_character_idx = 0
         

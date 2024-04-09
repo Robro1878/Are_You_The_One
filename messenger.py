@@ -40,7 +40,7 @@ class Messenger:
                             select.setActive(True)
                             self.scroll_y = 0
                 
-                if event.button == pygame.BUTTON_WHEELDOWN:
+                if event.button == pygame.BUTTON_WHEELDOWN and self.scroll_y > 0:
                     self.scroll_y -= self.scroll_speed
                 
                 if event.button == pygame.BUTTON_WHEELUP:

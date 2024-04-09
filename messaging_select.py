@@ -5,6 +5,7 @@ import pygame
 
 class Messaging_Select:
     def __init__(self, screen, character: str, characterManager):
+        '''Creates a new button for selecting which character to talk to'''
         self.screen = screen
         self.character = character
         self.height = game.screen_height // len(characterManager.getOtherCharacters())

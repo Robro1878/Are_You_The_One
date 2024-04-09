@@ -52,6 +52,10 @@ class Messaging:
     message_initial_height = game.screen_height - 110
     message_height_delta = message_height + 10
 
+    character_image_pos = (180,50)
+    match_button_pos = (650,50)
+
+
 class Colors:
     GREEN = (0, 255, 0)
     BLUE = (0,0,255)
