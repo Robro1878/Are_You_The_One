@@ -54,6 +54,7 @@ class Messaging:
 
     character_image_pos = (180,50)
     match_button_pos = (650,50)
+    character_name_pos = (310, 50)
 
 
 class Colors:

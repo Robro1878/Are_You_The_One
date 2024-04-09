@@ -31,6 +31,11 @@ class Character_Messenging:
         self.top_panel_rect = pygame.Rect(152,0,constants.game.screen_width-152, 100)
         self.bottom_panel_rect = pygame.Rect(152,constants.game.screen_height-75,constants.game.screen_width-152,75)
 
+        self.name_font = pygame.font.SysFont(None, 50)
+        self.name = self.name_font.render(character,True, constants.Colors.BLACK)
+        self.name_rect = self.name.get_rect()
+        self.name_rect.center = constants.Messaging.character_name_pos
+
         self.messages = []
 
     def run(self, events, scroll_y):
@@ -58,12 +63,18 @@ class Character_Messenging:
                         if self.send_message_rect.collidepoint(event.pos):
                             self.messages.append(Message(self.screen, self.input.get_input(), True))
                             self.input.reset()
+                            self.messages.append(Message(self.screen, "Hi Liam, I'm Amy. It's a pleasure to meet you. I must admit, I'm a bit nervous. I hope we have a lot in common! What kind of things are you interested in?", False))
 
             self.screen.fill(constants.Colors.LIGHT_GRAY, self.rect)
         
-        
+            total_height = 0
             for i in range(len(self.messages)):
-                self.messages[len(self.messages)-1-i].setHeight(constants.Messaging.message_initial_height - i*constants.Messaging.message_height_delta + scroll_y)
+                if i == 0:
+                    self.messages[len(self.messages)-1-i].setHeight(constants.Messaging.message_initial_height + scroll_y)
+                else:
+                    total_height += self.messages[len(self.messages)-i].get_total_text_height() + 10
+                    self.messages[len(self.messages)-1-i].setHeight(constants.Messaging.message_initial_height - total_height + scroll_y)
+                    
                 self.messages[len(self.messages)-1-i].run()
             
             pygame.draw.rect(self.screen, constants.Colors.GRAY, self.top_panel_rect)
@@ -71,6 +82,7 @@ class Character_Messenging:
             self.screen.blit(self.match_button, self.match_button_rect)
             self.screen.blit(self.send_message, self.send_message_rect)
             self.screen.blit(self.character_image, self.character_image_rect)
+            self.screen.blit(self.name, self.name_rect)
             
             self.input.run(events)
 
