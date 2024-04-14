@@ -9,6 +9,9 @@ class WinScreen:
         self.gameStateManager = gameStateManager
         self.character_manager = characterManager
         self.background = images.WinScreen.background
+        self.back_button = images.LoseScreen.back_button
+        self.back_button_rect = self.back_button.get_rect()
+        self.back_button_rect.center = C.back_button_pos
         self.maincharacter_image = None
         self.maincharacter_rect = None
         self.correctcharacter_image = None
@@ -27,11 +30,25 @@ class WinScreen:
             self.correctcharacter_rect = self.correctcharacter_image.get_rect()
             self.correctcharacter_rect.center = C.match_pos
         
+        for event in events:
+            if event.type == pygame.MOUSEMOTION:
+                if self.back_button_rect.collidepoint(event.pos):
+                    self.back_button = images.WinScreen.back_button_scaled
+                    self.back_button_rect = images.WinScreen.back_button_scaled.get_rect()
+                else:
+                    self.back_button = images.WinScreen.back_button
+                    self.back_button_rect = self.back_button.get_rect()
+                self.back_button_rect.center = C.back_button_pos
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if self.back_button_rect.collidepoint(event.pos):
+                    self.gameStateManager.setState("messenger")
+        
         # Blit the background onto the screen
         self.screen.blit(self.background, (0,0))
 
         #Blit characters on to screen
         self.screen.blit(self.maincharacter_image, self.maincharacter_rect)
         self.screen.blit(self.correctcharacter_image, self.correctcharacter_rect)
+        self.screen.blit(self.back_button, self.back_button_rect)
 
 
