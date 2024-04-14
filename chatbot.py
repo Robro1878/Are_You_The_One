@@ -33,18 +33,18 @@ class Chatbot:
         self.char_id = self.character.external_id
         info = self.client.get_me()
         self.creator_id = info.id
-        print(f'created character {self.name}')
+        # print(f'created character {self.name}')
     
     def send_message(self, text):
         print(f'Attempting to send message to {self.name}')
         with self.client.connect() as chat:
             if self.chat is None:
-                print(f'Attempting to create chat for {self.name}')
+                # print(f'Attempting to create chat for {self.name}')
                 self.chat, answer = chat.new_chat(self.char_id, self.creator_id,)
-                print(f"Created chat for {self.name}")
+                # print(f"Created chat for {self.name}")
     
             message = chat.send_message(self.char_id, self.chat.chat_id, text)
-            print(f'Sent {text} to {self.name}')
+            # print(f'Sent {text} to {self.name}')
 
         
         return message.text
