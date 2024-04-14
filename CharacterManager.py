@@ -75,6 +75,15 @@ class CharacterManager:
                 traits['Values'] = [random.choice(CharacterTraits.values) for i in range(random.randint(1,3))]
 
         # print(self.other_characters)
+
+    def getMatch(self):
+        return self.match
+
+    def setSelectedCharacter(self, character):
+        self.selected_character = character
+
+    def getSelectedCharacter(self): #for lose screen
+        return self.selected_character
     
     def getOtherCharacters(self):
         return self.other_characters

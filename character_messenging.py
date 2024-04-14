@@ -5,9 +5,10 @@ import pygame
 from message import Message
 
 class Character_Messenging:
-    def __init__(self, screen, character, character_manager):
+    def __init__(self, screen, character, game_state_manager, character_manager):
         self.screen = screen
         self.character = character
+        self.game_state_manager = game_state_manager
         self.character_manager = character_manager
         self.select_character_to_talk_to = images.Messaging.select_character
         self.rect = self.select_character_to_talk_to.get_rect()
@@ -68,6 +69,12 @@ class Character_Messenging:
                             # self.messages.append(Message(self.screen, "Hi Liam, I'm Amy. It's a pleasure to meet you. I must admit, I'm a bit nervous. I hope we have a lot in common! What kind of things are you interested in?", False))
                             ai_message = self.character_manager.send_message(self.character, sent_message)
                             self.messages.append(Message(self.screen, ai_message, False))
+                        if self.match_button_rect.collidepoint(event.pos):
+                            if self.character == self.character_manager.getMatch():
+                                self.game_state_manager.setState('winscreen')
+                            else:
+                                self.game_state_manager.setState('losescreen')
+
             self.screen.fill(constants.Colors.LIGHT_GRAY, self.rect)
         
             total_height = 0

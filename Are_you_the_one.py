@@ -6,6 +6,8 @@ from select_character import SelectCharacter
 from CharacterManager import CharacterManager
 from select_preferences import SelectPreferences
 from messenger import Messenger
+from winscreen import WinScreen
+from losescreen import LoseScreen
 
 class Game:
     def __init__(self):
@@ -22,8 +24,16 @@ class Game:
         self.select_character = SelectCharacter(self.screen, self.gameStateManager, self.characterManager)
         self.select_preferences = SelectPreferences(self.screen, self.gameStateManager, self.characterManager)
         self.messenger = Messenger(self.screen, self.gameStateManager, self.characterManager)
+        self.winscreen = WinScreen(self.screen, self.gameStateManager, self.characterManager)
+        self.losescreen = LoseScreen(self.screen, self.gameStateManager, self.characterManager)
 
-        self.states = {'start': self.startscreen, 'select_character': self.select_character, 'select_preferences': self.select_preferences, 'messenger': self.messenger}
+        self.states = {
+            'start': self.startscreen, 
+            'select_character': self.select_character, 
+            'select_preferences': self.select_preferences, 
+            'messenger': self.messenger,
+            'winscreen': self.winscreen,
+            'losescreen': self.losescreen}
 
     def run(self):
         '''Runs game'''

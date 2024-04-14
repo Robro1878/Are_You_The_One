@@ -67,3 +67,12 @@ class Colors:
 
 class AIPrompts:
     description = "{job} who enjoys {interests}. They value {values}."
+
+class WinScreen:
+    main_character_pos = (170,250)
+    match_pos = (620,250)
+
+class LoseScreen:
+    main_character_pos = WinScreen.main_character_pos
+    incorrect_match_pos = WinScreen.match_pos
+    back_button_pos = (90,40)

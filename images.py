@@ -125,4 +125,10 @@ class Messaging:
     match_button = pygame.image.load("images/match.png")
     match_button_scaled = pygame.image.load("images/match_scaled.png")
 
-    
+class WinScreen:
+    background = pygame.image.load("images/win_screen.jpg")
+
+class LoseScreen:
+    background = pygame.image.load("images/lose_screen.jpg")
+    back_button = pygame.image.load("images/back_button.png")
+    back_button_scaled = pygame.image.load("images/back_button_scaled.png")

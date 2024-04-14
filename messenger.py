@@ -10,7 +10,7 @@ class Messenger:
         self.characterManager = characterManager
         self.messaging_selects = []
         self.stateManager = StateManager()
-        self.states = {'select_character': Character_Messenging(self.screen, None, self.characterManager)}
+        self.states = {'select_character': Character_Messenging(self.screen, None, self.gameStateManager, self.characterManager)}
 
         self.scroll_y = 0
         self.scroll_speed = 30
@@ -20,7 +20,7 @@ class Messenger:
         if self.messaging_selects == []:
             for character in self.characterManager.getOtherCharacters():
                 self.messaging_selects.append(Messaging_Select(self.screen, character, self.characterManager))
-                self.states[character] = Character_Messenging(self.screen, character, self.characterManager)
+                self.states[character] = Character_Messenging(self.screen, character, self.gameStateManager, self.characterManager)
             for i in range(len(self.characterManager.getOtherCharacters())):
                 self.messaging_selects[i].setLocation(i * game.screen_height//len(self.characterManager.getOtherCharacters()))
 
@@ -37,6 +37,7 @@ class Messenger:
                                 select_unactivate.setActive(False)
                             
                             self.stateManager.setState(select.getCharacter())
+                            self.characterManager.setSelectedCharacter(select.getCharacter())
                             select.setActive(True)
                             self.scroll_y = 0
                 
