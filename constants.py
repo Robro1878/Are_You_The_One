@@ -64,3 +64,6 @@ class Colors:
     BLACK = (0, 0, 0)
     GRAY = (200, 200, 200)
     LIGHT_GRAY = (219, 219, 219)
+
+class AIPrompts:
+    description = "{job} who enjoys {interests}. They value {values}."

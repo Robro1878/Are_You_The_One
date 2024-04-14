@@ -67,6 +67,7 @@ class SelectPreferences:
                     self.characterManager.setJob_Preference(self.job_input.get_input())
                     self.characterManager.setValues_Preference(self.values_input.get_input())
                     self.characterManager.randomizeOtherPlayerTraits()
+                    self.characterManager.create_chatbots()
                     self.gameStateManager.setState('messenger')
 
 

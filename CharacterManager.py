@@ -1,10 +1,11 @@
 import random
 import CharacterTraits
+from chatbot import Chatbot
 
 class CharacterManager:
     def __init__(self, characters: dict):
         self.characters = characters
-        self.other_characters = self.characters.copy()
+        self.other_characters = self.characters.copy() #contains all the characters that the user DIDNT choose
 
         self.gender_preference = None
         self.interest_preference = ''
@@ -12,6 +13,8 @@ class CharacterManager:
         self.values_preference = ''
 
         self.match = ''
+
+        self.chatbots = {}
     
     def setMainCharacter(self, character: str):
         self.MainCharacter = character
@@ -75,6 +78,20 @@ class CharacterManager:
     
     def getOtherCharacters(self):
         return self.other_characters
+    
+    def create_chatbots(self):
+        for character, traits in self.other_characters.items():
+            self.chatbots[character] = Chatbot(character,
+                                               interests=traits['Interests'],
+                                               job=traits['Job'],
+                                               values=traits['Values'])
+            self.chatbots[character].create_character()
+    
+    def send_message(self, character, text):
+        return self.chatbots[character].send_message(text)
+        
+
+
 
         
         
