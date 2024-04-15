@@ -26,3 +26,4 @@ This project uses
 * pygame for the GUI
 * [perchance.org's](https://perchance.org/welcome) [ai image generator](https://perchance.org/ai-text-to-image-generator) for the graphics
 * [character.ai](https://character.ai) for the chatbots
+* [kramcat's](https://github.com/kramcat/CharacterAI) library for interfacing with character.ai
