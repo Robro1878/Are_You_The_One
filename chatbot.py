@@ -14,8 +14,11 @@ class Chatbot:
 
     def format_attributes(self, attributes):    
         num_attributes = len(attributes)
-        
-        if num_attributes == 1:
+        # print(type(attributes))
+
+        if type(attributes) is not list:
+            return attributes
+        elif num_attributes == 1:
             return attributes[0]
         elif num_attributes == 2:
             return " and ".join(attributes)
@@ -56,3 +59,7 @@ class Chatbot:
 
 
 
+# if __name__ =='__main__':
+#     C = Chatbot('name', ['Skydiving', 'Airplanes'], 'pilot', ['loyalty', 'creativity'])
+#     print(type(C.interests))
+#     print(C.format_attributes(C.interests))
